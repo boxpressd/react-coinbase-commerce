@@ -132,9 +132,11 @@ export default class IFrame extends React.Component<Props, State> {
 
     switch (msg.data.event) {
       case 'charge_confirmed':
+      case 'charge:created':
         onChargeSuccess && onChargeSuccess(msg.data);
         break;
       case 'charge_failed':
+      case 'charge:failed':
         onChargeFailure && onChargeFailure(msg.data);
         break;
       case 'payment_detected':
